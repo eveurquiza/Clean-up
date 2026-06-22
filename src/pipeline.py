@@ -5,7 +5,13 @@ from src.outliers import remove_outliers_iqr
 
 def clean_data(df):
     df = remove_duplicates(df)
-    df = fill_mean(df, 'column_name')  # Replace 'column_name' with the actual column name
-    df = normalize(df, 'column_name')  # Replace 'column_name' with the actual column name
-    df = remove_outliers_iqr(df, 'column_name')  # Replace 'column_name' with the actual column name
+    print("Duplicates removed successfully!")
+    print(f'Choose one option for column to fill {df.columns[0]}: ')
+    df = fill_mean(df, input())  # Replace 'column_name' with the actual column name
+    print("Missing values filled successfully!")
+    print(f'Choose one option for column to normalize {df.columns[0]}: ')
+    df = normalize(df, input())  # Replace 'column_name' with the actual column name
+    print(f'Choose one option for column to remove outliers {df.columns[0]}: ')
+    df = remove_outliers_iqr(df, input())  # Replace 'column_name' with the actual column name
+    print("Outliers removed successfully!")
     return df
