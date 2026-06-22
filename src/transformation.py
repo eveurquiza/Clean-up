@@ -1,6 +1,8 @@
-from sklearn.preprocessing import MinMaxScaler
+def normalize(df, column):
+    from sklearn.preprocessing import MinMaxScaler
 
-def normalize(df, columns):
     scaler = MinMaxScaler()
-    df[columns] = scaler.fit_transform(df[columns])
+
+    df[[column]] = scaler.fit_transform(df[[column]])  # 👈 clave aquí
+
     return df
